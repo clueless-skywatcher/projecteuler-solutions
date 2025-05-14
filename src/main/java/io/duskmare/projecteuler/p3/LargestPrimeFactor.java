@@ -1,6 +1,6 @@
-package io.duskmare.projecteuler.p2;
+package io.duskmare.projecteuler.p3;
 
-public class EvenFibonacciNumbers {
+public class LargestPrimeFactor {
     private static boolean isPrime(long n) {
         for (int i = 2; i <= (int) Math.sqrt(n); i++) {
             if (n % i == 0) return false;
@@ -23,3 +23,4 @@ public class EvenFibonacciNumbers {
         System.out.println(getLargestPrimeFactor(600851475143L));
     }
 }
+

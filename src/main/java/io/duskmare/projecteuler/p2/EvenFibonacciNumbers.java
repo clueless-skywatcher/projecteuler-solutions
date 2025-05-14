@@ -1,25 +1,26 @@
 package io.duskmare.projecteuler.p2;
 
 public class EvenFibonacciNumbers {
-    private static boolean isPrime(long n) {
-        for (int i = 2; i <= (int) Math.sqrt(n); i++) {
-            if (n % i == 0) return false;
-        }
-        return true;
-    }
-
-    public static long getLargestPrimeFactor(long num) {
-        long start = (long) Math.sqrt(num);
-        while (start > 0) {
-            if (isPrime(start) && num % start == 0) {
+    public static long getEvenFibonSum(long n) {
+        long term1 = 0;
+        long term2 = 1;
+        long sum = 0;
+        while (true) {
+            long term3 = term1 + term2;
+            if (term3 >= n) {
                 break;
             }
-            start--;
+            if ((term3 % 2) == 0) {
+                sum += term3;
+            }
+            term1 = term2;
+            term2 = term3;
         }
-        return start;
+
+        return sum;
     }
 
     public static void main(String[] args) {
-        System.out.println(getLargestPrimeFactor(600851475143L));
+        System.out.println(getEvenFibonSum(100));
     }
 }
